@@ -1,5 +1,5 @@
 node {
-  git url: 'https://github.com/spanneberg/user-registration-V2.git'
+  git url: 'https://github.com/spanneberg/user-registration-V2.git', branch: 'jenkins2'
 
   def mvnHome = tool 'Maven3'
 
