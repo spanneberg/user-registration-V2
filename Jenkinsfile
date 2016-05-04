@@ -11,6 +11,6 @@ node {
   sh "${mvnHome}/bin/mvn -pl user-registration-acceptancetest-jbehave clean install"
 
   stage 'Performance'
-  sh "${mvnHome}/bin/mvn -pl user-registration-capacitytest-gatling clean install"
+  sh "cd user-registration-capacitytest-gatling && ${mvnHome}/bin/mvn clean install"
 
 }
