@@ -3,19 +3,14 @@ node {
 
   def mvnHome = tool 'Maven3'
 
-  stage 'Commit'
-
   // build Parent POM and actual application w/ unit tests
+  stage 'Commit'
   sh "${mvnHome}/bin/mvn -pl .,user-registration-application clean install"
 
-  parallel {
+  stage 'Acceptance'
+  sh "${mvnHome}/bin/mvn -pl user-registration-acceptancetest-jbehave clean install"
 
-    stage 'Acceptance'
-    sh "${mvnHome}/bin/mvn -pl user-registration-acceptancetest-jbehave clean install"
-
-    stage 'Performance'
-    sh "${mvnHome}/bin/mvn -pl user-registration-capacitytest-gatling clean install"
-
-  }
+  stage 'Performance'
+  sh "${mvnHome}/bin/mvn -pl user-registration-capacitytest-gatling clean install"
 
 }
