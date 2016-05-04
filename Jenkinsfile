@@ -9,12 +9,12 @@ node {
   sh "${mvnHome}/bin/mvn -pl user-registration,user-registration-application clean install"
 
   prallel {
-  
+
     stage 'Acceptance'
-    sh "${mvnHome}/bin/mvn -pl user-registration-acceptancetest-jbehave clean install
+    sh "${mvnHome}/bin/mvn -pl user-registration-acceptancetest-jbehave clean install"
 
     stage 'Performance'
-    sh "${mvnHome}/bin/mvn -pl user-registration-capacitytest-gatling clean install
+    sh "${mvnHome}/bin/mvn -pl user-registration-capacitytest-gatling clean install"
 
   }
 
