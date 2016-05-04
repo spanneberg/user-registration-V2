@@ -8,7 +8,7 @@ node {
   // build Parent POM and actual application w/ unit tests
   sh "${mvnHome}/bin/mvn -pl .,user-registration-application clean install"
 
-  prallel {
+  parallel {
 
     stage 'Acceptance'
     sh "${mvnHome}/bin/mvn -pl user-registration-acceptancetest-jbehave clean install"
