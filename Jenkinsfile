@@ -5,11 +5,12 @@ node {
 
   stage 'Commit'
 
-  # build Parent POM and actual application w/ unit tests
+  // build Parent POM and actual application w/ unit tests
   sh "${mvnHome}/bin/mvn -pl user-registration,user-registration-application clean install"
 
   prallel {
-    stage 'Acceptaance'
+  
+    stage 'Acceptance'
     sh "${mvnHome}/bin/mvn -pl user-registration-acceptancetest-jbehave clean install
 
     stage 'Performance'
