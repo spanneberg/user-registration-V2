@@ -6,7 +6,7 @@ node {
   stage 'Commit'
 
   // build Parent POM and actual application w/ unit tests
-  sh "${mvnHome}/bin/mvn -pl user-registration,user-registration-application clean install"
+  sh "${mvnHome}/bin/mvn -pl .,user-registration-application clean install"
 
   prallel {
 
